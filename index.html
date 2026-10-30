@@ -211,6 +211,7 @@
       <div class="pie-legal">
         <span>© <span id="pie-anio">2026</span> HABILMIND S.L.</span>
         <a href="https://trust.habilmind.dev/politica-cookies-ecosistema-web" target="_blank" rel="noopener">Política de cookies</a>
+        <button type="button" class="pie-ck" data-cookie-preferences onclick="window.openCookiePreferences&&window.openCookiePreferences()">Gestión de cookies</button>
         <a href="https://trust.habilmind.dev/aviso-legal-ecosistema-web" target="_blank" rel="noopener">Aviso legal</a>
         <a href="https://trust.habilmind.dev/politica-privacidad-ecosistema-web" target="_blank" rel="noopener">Política de privacidad</a>
       </div>
@@ -219,11 +220,7 @@
     <script>document.getElementById('pie-anio').textContent=new Date().getFullYear()</script>
   </footer>
 
-  <!-- 3) AVISO DE COOKIES + GA4 (Consent v2). GA4 SOLO se carga cuando el visitante pulsa «Aceptar». -->
-  <div id="cookies" hidden>
-    <p>Usamos cookies de analítica para mejorar la web. <a href="/privacidad">Más información</a></p>
-    <button id="ck-aceptar">Aceptar</button> <button id="ck-rechazar">Rechazar</button>
-  </div>
+  <!-- 3) CONSENTIMIENTO DE COOKIES: lo pinta src/cookies.js (banner + panel). GA4 solo tras aceptar «Análisis». -->
 
   <!-- 4) CHAT DE OFELIA (obligatorio, no quitar) -->
   <script src="https://go.habilmind.net/webchat/widget.js" async></script>
