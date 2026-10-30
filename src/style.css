@@ -281,14 +281,13 @@ html.hmc-abierto{overflow:hidden}
 @media (max-width:639px){.exp-cab{margin-bottom:1.75rem}.exp-flecha{width:2.5rem;height:2.5rem}.exp-prev{left:.5rem}.exp-next{right:.5rem}}
 @media (prefers-reduced-motion:reduce){.exp-pista{scroll-behavior:auto}.exp-card,.exp-flecha,.exp-dot::before,.exp-mas{transition:none}}
 
-/* Colaboraciones (universidades): marquee infinito de 2 filas en sentidos opuestos, como socioemociograma. Pausa con hover/foco; estático con prefers-reduced-motion. */
+/* Colaboraciones (universidades): marquee infinito y continuo de 2 filas en sentidos opuestos (nunca se pausa); logos sin tarjeta, con fondo transparente; estático con prefers-reduced-motion. */
 .uni{border-top:1px solid var(--borde)}
 .uni-marquee{display:grid;gap:.5rem}
 .uni-fila{overflow:hidden;padding:.75rem 0;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%)}
 .uni-pista{display:flex;align-items:center;gap:1.25rem;width:max-content;margin:0;padding:0;list-style:none;animation:uniIzq 50s linear infinite}
 .uni-der .uni-pista{animation-name:uniDer;animation-duration:45s}
-.uni-fila:hover .uni-pista,.uni-fila:focus-within .uni-pista{animation-play-state:paused}
-.uni-logo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:180px;height:88px;padding:.75rem 1rem;background:var(--card);border:1px solid var(--borde)}
+.uni-logo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:180px;height:88px;padding:.75rem 1rem;background:transparent;border:0;box-shadow:none}
 .uni-logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 @keyframes uniIzq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .625rem))}}
 @keyframes uniDer{from{transform:translateX(calc(-50% - .625rem))}to{transform:translateX(0)}}
