@@ -1,7 +1,7 @@
 // Carrusel de expertos (sin framework). Autoplay cada 3 s, como en socioemociograma.
-// - Se DETIENE del todo al interactuar: clic en flechas o dots, arrastre/swipe, rueda horizontal, teclado o botón de pausa.
+// - Se DETIENE del todo al interactuar: clic en flechas o dots, arrastre/swipe, rueda horizontal, o teclado. No hay botón de play/pausa visible.
 // - Se PAUSA mientras el ratón está encima o el foco está dentro (tarjetas o controles) y sigue al salir, salvo que ya se haya detenido.
-// - Con prefers-reduced-motion: reduce NO hay autoplay (el botón de reproducir permite activarlo a mano).
+// - Con prefers-reduced-motion: reduce NO hay autoplay.
 // - Solo avanza si el carrusel está a la vista y la pestaña visible. Al llegar al final vuelve al primero.
 // - aria-live="off" mientras hay autoplay y "polite" cuando está detenido (patrón WAI-ARIA APG).
 const INTERVALO = 3000;
@@ -13,7 +13,6 @@ export function initExpertos(raiz = document.querySelector('[data-exp-carrusel]'
   const dots = Array.from(raiz.querySelectorAll('.exp-dot'));
   const prev = raiz.querySelector('.exp-prev');
   const next = raiz.querySelector('.exp-next');
-  const play = raiz.querySelector('.exp-play');
   if (!slides.length) return;
 
   const reducido = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -50,11 +49,6 @@ export function initExpertos(raiz = document.querySelector('[data-exp-carrusel]'
     ir(actual + dir);
   };
 
-  const pintarPlay = () => {
-    if (!play) return;
-    play.setAttribute('aria-pressed', String(detenido));
-    play.setAttribute('aria-label', detenido ? 'Reanudar el avance automático' : 'Pausar el avance automático');
-  };
   const programar = () => {
     clearInterval(temporizador); temporizador = null;
     const corre = !detenido && !encima && !foco && visible && !document.hidden;
@@ -62,12 +56,11 @@ export function initExpertos(raiz = document.querySelector('[data-exp-carrusel]'
     raiz.dataset.autoplay = corre ? 'on' : (detenido ? 'detenido' : 'pausa');
     if (corre) temporizador = setInterval(() => paso(1), INTERVALO);
   };
-  const detener = () => { detenido = true; pintarPlay(); programar(); };
+  const detener = () => { detenido = true; programar(); };
 
   prev.addEventListener('click', () => { detener(); paso(-1); });
   next.addEventListener('click', () => { detener(); paso(1); });
   dots.forEach((d, i) => d.addEventListener('click', () => { detener(); ir(i); }));
-  if (play) play.addEventListener('click', () => { detenido = !detenido; pintarPlay(); programar(); });
 
   // Hover y foco: pausa mientras dura.
   raiz.addEventListener('mouseenter', () => { encima = true; programar(); });
@@ -121,7 +114,7 @@ export function initExpertos(raiz = document.querySelector('[data-exp-carrusel]'
   document.addEventListener('visibilitychange', programar);
   reducido.addEventListener?.('change', (e) => { if (e.matches) detener(); });
 
-  marcar(0); pintarPlay(); programar();
+  marcar(0); programar();
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => initExpertos());
