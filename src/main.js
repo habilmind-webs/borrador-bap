@@ -40,3 +40,21 @@ registerConsentScript('ga4', 'analisis', () => {
 });
 
 initConsentScripts();
+
+// Menú hamburguesa de la cabecera (solo se ve en ≤860px; en escritorio el botón está oculto y el nav sigue igual).
+(() => {
+  const cab = document.querySelector('.cab');
+  const btn = cab && cab.querySelector('.cab-menu');
+  const nav = cab && cab.querySelector('#cab-nav');
+  if (!btn || !nav) return;
+  const set = (abierto, foco) => {
+    cab.classList.toggle('abierto', abierto);
+    btn.setAttribute('aria-expanded', String(abierto));
+    if (foco) btn.focus();
+  };
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cab.classList.contains('abierto')) set(false, true); });
+  document.addEventListener('click', (e) => { if (cab.classList.contains('abierto') && !cab.contains(e.target)) set(false); });
+  window.matchMedia('(min-width:861px)').addEventListener('change', (m) => { if (m.matches) set(false); });
+})();

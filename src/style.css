@@ -130,8 +130,8 @@ details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4r
 .pie-disc{max-width:52rem;margin:1rem auto 0!important;padding-top:0!important;border-top:0!important;text-align:center;font-size:.75rem;color:#7d828b}
 @media (max-width:1023px){.pie-eco ul{grid-template-columns:repeat(2,1fr)}.tel,.tel-pais,.tel a{font-size:12px}}
 @media (max-width:639px){.pie-eco ul{grid-template-columns:1fr}.tel-pais{font-size:14px}.tel a{font-size:12px}.pie-contacto{flex-direction:column;align-items:center}}
-@media (max-width:860px){.dos{grid-template-columns:1fr}.cab-nav>a:not(.btn){display:none}.marca img{height:40px}}
-@media (max-width:480px){.cab-nav .btn-sec{display:none}.cierre .ctas .btn{width:100%}.hero-areas li{grid-template-columns:auto 1fr;gap:.25rem 1rem}.hero-areas .siglas{grid-column:2}}
+@media (max-width:860px){.dos{grid-template-columns:1fr}.marca img{height:40px}}
+@media (max-width:480px){.cierre .ctas .btn{width:100%}.hero-areas li{grid-template-columns:auto 1fr;gap:.25rem 1rem}.hero-areas .siglas{grid-column:2}}
 
 /* Rosario 30/10: sin cursivas en toda la web */
 em,i,cite,address,dfn,var{font-style:normal}
@@ -184,3 +184,22 @@ html.hmc-abierto{overflow:hidden}
   .hmc-btn{height:2.25rem;font-size:.8125rem}
   .hmc-panel{padding:1.1rem}
 }
+
+/* Menú hamburguesa (solo móvil/tablet estrecha ≤860px; escritorio sin cambios). Pedido de Rosario vía DC. */
+.cab-menu{display:none}
+@media (max-width:860px){
+  .cab-in{position:relative}
+  .cab-menu{display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;margin-right:-.25rem;padding:0;background:transparent;border:1px solid var(--borde);border-radius:0;color:var(--fg);cursor:pointer}
+  .cab-menu:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+  .cab-menu-ico{position:relative;display:block;width:22px;height:16px}
+  .cab-menu-ico span{position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:transform .2s,opacity .2s}
+  .cab-menu-ico span:nth-child(1){top:0}.cab-menu-ico span:nth-child(2){top:7px}.cab-menu-ico span:nth-child(3){top:14px}
+  .cab-menu[aria-expanded="true"] .cab-menu-ico span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .cab-menu[aria-expanded="true"] .cab-menu-ico span:nth-child(2){opacity:0}
+  .cab-menu[aria-expanded="true"] .cab-menu-ico span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .cab-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1rem 1rem;background:var(--bg);border-bottom:1px solid var(--borde);box-shadow:0 12px 24px rgba(21,27,35,.12);max-height:calc(100vh - 80px - var(--flash-widget-height,0px));overflow-y:auto}
+  .cab.abierto .cab-nav{display:flex}
+  .cab-nav>a:not(.btn){display:flex;align-items:center;min-height:48px;padding:0 .25rem;font-size:1rem;color:var(--fg);border-bottom:1px solid var(--borde)}
+  .cab-nav .btn,.cab-nav .btn-sm{display:flex;width:100%;height:48px;margin-top:.75rem;font-size:1rem}
+}
+@media (max-width:860px) and (prefers-reduced-motion:reduce){.cab-menu-ico span{transition:none}}
