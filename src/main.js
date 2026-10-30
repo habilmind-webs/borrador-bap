@@ -58,3 +58,4 @@ initConsentScripts();
   document.addEventListener('click', (e) => { if (cab.classList.contains('abierto') && !cab.contains(e.target)) set(false); });
   window.matchMedia('(min-width:861px)').addEventListener('change', (m) => { if (m.matches) set(false); });
 })();
+import './expertos.js';
