@@ -58,7 +58,6 @@ strong,b,dt,summary{font-weight:700}
 .hero-areas .area{font-weight:500;color:var(--fg);line-height:1.35}
 .hero-areas .siglas{font-size:.8125rem;font-weight:500;letter-spacing:.08em;color:var(--hm);white-space:nowrap}
 .hero-foto{aspect-ratio:4/3;width:100%;display:grid;place-items:center;background:var(--muted);border:1px dashed var(--rule);color:var(--mut);font-size:.875rem;letter-spacing:.08em;text-transform:uppercase}.hero-foto img,.hero-marco>img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.hero-marco-enlace{display:block;padding:1rem;font-size:.9375rem;font-weight:500;color:var(--pri);text-decoration:none}.hero-marco-enlace:hover{text-decoration:underline}
 @media (min-width:640px){.hero-texto .ctas{flex-direction:row}.insignia>span:first-child{font-size:1rem}}
 @media (min-width:768px){.insignia-visual{display:inline-flex}.insignia-movil{display:none}.hero-marco{padding:1rem}}
 @media (min-width:1024px){.hero-grid{grid-template-columns:.9fr 1.1fr;gap:4rem}.hero-texto{text-align:left}.hero-subt{margin-left:0;font-size:1.125rem}.hero-dev,.hero-texto .ctas{justify-content:flex-start}}
