@@ -18,7 +18,7 @@ a{color:inherit}img{max-width:100%;height:auto}
 /* Escalas tipográficas idénticas a socioemociograma */
 h1,h2,h3,h4{font-family:'Inter',system-ui,sans-serif;font-weight:500;letter-spacing:-.02em;line-height:1.15;margin:0 0 1rem;color:#000}
 h1,.heading-hero{font-size:clamp(2rem,4.2vw,3.25rem)}h2{font-size:clamp(1.5rem,2.6vw,2.125rem)}h3{font-size:clamp(1.05rem,1.4vw,1.25rem)}
-h1 em,h2 em,h3 em,h4 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;color:#000}
+h1 em,h2 em,h3 em,h4 em{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-weight:400;letter-spacing:0;color:#000}
 p{line-height:1.6}
 strong,b,dt,summary{font-weight:700}
 /* Cabecera (como socioemociograma: 80px, crema 92%, borde inferior, botones rectos) */
@@ -75,18 +75,18 @@ strong,b,dt,summary{font-weight:700}
 .checks li::before{content:"✓";position:absolute;left:0;top:.55rem;width:1.35rem;height:1.35rem;border:1px solid var(--rule);background:var(--surf);color:var(--fg);font-size:.75rem;display:grid;place-items:center;font-weight:500}
 .tarjeta-imp{background:var(--card);border:1px solid var(--rule);padding:2rem;box-shadow:var(--sombra)}.tarjeta-imp p{margin:0;color:var(--mut)}
 .bloque{margin-top:3rem}.bloque-cab{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem;margin-bottom:1.5rem}
-.num{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:2rem;color:var(--acc);line-height:1}.bloque-tit{margin:0;font-size:clamp(1.05rem,1.4vw,1.25rem)}
+.num{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-weight:400;font-size:2rem;color:var(--acc);line-height:1}.bloque-tit{margin:0;font-size:clamp(1.05rem,1.4vw,1.25rem)}
 .pruebas{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .prueba{background:var(--card);border:1px solid var(--borde);padding:1.75rem;display:flex;flex-direction:column;box-shadow:var(--sombra)}
 .sigla{margin:0 0 .25rem;font-weight:500;letter-spacing:.08em;color:var(--hm)}.prueba h3{margin-bottom:.5rem}
-.pregunta{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.25rem;line-height:1.35;color:var(--fg);margin:0 0 .75rem}
+.pregunta{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-size:1.25rem;line-height:1.35;color:var(--fg);margin:0 0 .75rem}
 .prueba>p{color:var(--mut);margin:0 0 1rem}
 dl{margin:0 0 1rem;display:grid;gap:.5rem}dl div{display:grid;grid-template-columns:7.5rem 1fr;gap:.5rem}dt{font-weight:500;font-size:.875rem;color:var(--fg)}dd{margin:0;color:var(--mut);font-size:.875rem}
 .cursos{list-style:none;padding:0;margin:0 0 1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.35rem .75rem;font-size:.875rem}
 .cursos li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--borde);padding:.2rem 0;color:var(--mut)}.cursos b{font-weight:500;color:var(--fg)}
 .enlace{margin-top:auto;font-weight:500;color:var(--pri);text-decoration:none}.enlace:hover{text-decoration:underline}
 .benefs{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.benef{background:var(--card);border:1px solid var(--borde);padding:1.5rem;box-shadow:var(--sombra)}.benef .checks li{color:var(--mut)}.pendiente{color:var(--mut);font-style:italic}
+.benef{background:var(--card);border:1px solid var(--borde);padding:1.5rem;box-shadow:var(--sombra)}.benef .checks li{color:var(--mut)}.pendiente{color:var(--mut);font-style:normal}
 .cierre{text-align:center}.centro{margin-top:1.5rem}.cierre .btn{height:3rem;padding:0 2rem;font-size:1rem}
 .lead{color:var(--mut);font-size:1.125rem;margin:0 auto .75rem;max-width:42rem}
 details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4rem}summary{cursor:pointer;font-weight:500}details p{margin:.75rem 0 0;color:var(--mut)}
@@ -96,3 +96,6 @@ details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4r
 @media (max-width:480px){.cab-nav .btn-sec{display:none}.cierre .ctas .btn{width:100%}.hero-areas li{grid-template-columns:auto 1fr;gap:.25rem 1rem}.hero-areas .siglas{grid-column:2}}
 #cookies{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:50;background:#fff;border:1px solid #ccd;border-radius:10px;padding:1rem;box-shadow:0 4px 20px #0002;max-width:520px}
 #cookies button{padding:.5rem 1rem;border-radius:6px;border:1px solid #335;cursor:pointer}#ck-aceptar{background:#335;color:#fff}
+
+/* Rosario 30/10: sin cursivas en toda la web */
+em,i,cite,address,dfn,var{font-style:normal}
