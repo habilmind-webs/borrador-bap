@@ -24,7 +24,7 @@ strong,b,dt,summary{font-weight:700}
 /* Cabecera (como socioemociograma: 80px, crema 92%, borde inferior, botones rectos) */
 .cab{position:sticky;top:0;z-index:50;background:rgba(250,250,245,.92);border-bottom:1px solid var(--borde)}
 .cab-in{display:flex;align-items:center;justify-content:space-between;gap:1.75rem;height:80px}
-.marca{text-decoration:none;display:flex;align-items:baseline;gap:.6rem;min-width:0}.marca strong{font-size:1.25rem;font-weight:500;color:#000;letter-spacing:-.02em}.marca span{font-size:.875rem;color:var(--mut);font-weight:500}
+.marca{text-decoration:none;display:flex;align-items:center;min-width:0;flex-shrink:1}.marca img{display:block;height:48px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
 .cab-nav{display:flex;align-items:center;gap:1.25rem}.cab-nav>a:not(.btn){text-decoration:none;font-size:.875rem;font-weight:500;color:var(--mut);transition:color .2s}.cab-nav>a:not(.btn):hover{color:var(--fg)}
 /* Botones: rectos, Inter 500. Principal negro (como «Precios» de socioemociograma); secundario con borde */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.5rem;padding:0 1rem;border-radius:0;font-size:.875rem;font-weight:500;line-height:1.5;white-space:nowrap;text-decoration:none;border:1px solid var(--borde);transition:background-color .2s,color .2s}
@@ -96,8 +96,8 @@ dl{margin:0 0 1rem;display:grid;gap:.5rem}dl div{display:grid;grid-template-colu
 .lead{color:var(--mut);font-size:1.125rem;margin:0 auto .75rem;max-width:42rem}
 details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4rem}summary{cursor:pointer;font-weight:500}details p{margin:.75rem 0 0;color:var(--mut)}
 /* Pie oscuro como socioemociograma */
-.pie{padding:2rem 0;font-size:.875rem;background:#171717;color:#d4d4d4;text-align:center}.pie a{color:#a3a3a3}.pie a:hover{color:#fafafa}
-@media (max-width:860px){.dos{grid-template-columns:1fr}.cab-nav>a:not(.btn){display:none}.marca span{display:none}}
+.pie-logo{display:block;height:48px;width:auto;max-width:80%;margin:0 auto 1.25rem;filter:brightness(0) invert(1)}.pie{padding:2rem 0;font-size:.875rem;background:#171717;color:#d4d4d4;text-align:center}.pie a{color:#a3a3a3}.pie a:hover{color:#fafafa}
+@media (max-width:860px){.dos{grid-template-columns:1fr}.cab-nav>a:not(.btn){display:none}.marca img{height:40px}}
 @media (max-width:480px){.cab-nav .btn-sec{display:none}.cierre .ctas .btn{width:100%}.hero-areas li{grid-template-columns:auto 1fr;gap:.25rem 1rem}.hero-areas .siglas{grid-column:2}}
 #cookies{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:50;background:#fff;border:1px solid #ccd;border-radius:10px;padding:1rem;box-shadow:0 4px 20px #0002;max-width:520px}
 #cookies button{padding:.5rem 1rem;border-radius:6px;border:1px solid #335;cursor:pointer}#ck-aceptar{background:#335;color:#fff}
