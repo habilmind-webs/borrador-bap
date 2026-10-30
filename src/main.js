@@ -1,6 +1,7 @@
 // Fuentes como en socioemociograma: autoalojadas con @fontsource (solo Inter 400/500: una única tipografía, sin serif ni cursivas, pedido de Rosario)
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css'; // negritas (<strong>) en Inter real, sin negrita sintética
 import './style.css';
 
 import { initConsentScripts, registerConsentScript } from './cookies.js';
