@@ -298,11 +298,11 @@ html.hmc-abierto{overflow:hidden}
 .tel-emerg-celda{display:none}
 /* Teléfonos por país en móvil: rejilla de 2 columnas centrada (bandera + país arriba, número debajo), como socioemociograma. Escritorio/tablet: flujo con «|». */
 @media (max-width:639px){
-  .tels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem .75rem;line-height:1.35}
+  .tels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem .5rem;line-height:1.35}
   .tel-sep{display:none}
   .tel{display:flex;flex-direction:column;align-items:center;gap:.2rem;white-space:normal;text-align:center}
-  .tel-nombre{display:inline-flex;align-items:center;justify-content:center;gap:.35rem}
-  .tel img{margin:0}
+  .tel-nombre{display:block;text-align:center}
+  .tel img{margin:0 .35rem 0 0}
   .tel-pais{color:#fff;font-size:14px;font-weight:500}
   .tel a{font-size:14px;color:#a9adb4}
   .tel-emerg-celda{display:flex}
