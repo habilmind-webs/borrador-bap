@@ -93,6 +93,12 @@ dl{margin:0 0 1rem;display:grid;gap:.5rem}dl div{display:grid;grid-template-colu
 @media (min-width:700px){.benefs{grid-template-columns:repeat(2,1fr)}.benef:last-child{grid-column:1/-1}}
 @media (min-width:1024px){.benefs{grid-template-columns:repeat(6,1fr);gap:1.75rem}.benef{grid-column:span 2}.benef:nth-child(n+4){grid-column:span 3}.benef:last-child{grid-column:span 3}}.pendiente{color:var(--mut);font-style:normal}
 .cierre{text-align:center}.centro{margin-top:1.5rem}.cierre .btn{height:3rem;padding:0 2rem;font-size:1rem}
+/* Cierre CTA como banda independiente: navy del sistema con filete terracota, distinta de Beneficios (crema) y FAQ (crema alt) */
+.cierre{background:var(--pri);color:#fff;border-top:4px solid var(--acc);padding:5rem 0}
+.cierre h2{color:#fff}.cierre .lead{color:rgba(255,255,255,.78)}
+.cierre .btn-pri{background:#fff;color:#000;border-color:#fff}.cierre .btn-pri:hover{background:var(--sec);border-color:var(--sec)}
+.cierre .btn-sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}.cierre .btn-sec:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.cierre .btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 .lead{color:var(--mut);font-size:1.125rem;margin:0 auto .75rem;max-width:42rem}
 details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4rem}summary{cursor:pointer;font-weight:500}details p{margin:.75rem 0 0;color:var(--mut)}
 /* Pie oscuro como socioemociograma */
