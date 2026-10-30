@@ -7,9 +7,9 @@ import './style.css';
 import { initConsentScripts, registerConsentScript } from './cookies.js';
 
 // GA4 con Consent v2 en modo básico: gtag NO se carga ni envía nada hasta que se acepta la categoría «Análisis».
-// GA4_ID pendiente de Rosario/Joaquín: cuando llegue, ponerlo aquí y el resto ya está cableado.
+// GA4_ID: flujo propio bap.habilmind.com (30/10/2026, OK Joaquín).
 // En el borrador (*.sslip.io) y en local NO se carga GA4 nunca, para no ensuciar las estadísticas.
-const GA4_ID = 'G-XXXXXXXXXX';
+const GA4_ID = 'G-8S8THM06M9'; // flujo bap.habilmind.com en «habilmind sl» (properties/558016759), alta 30/10/2026
 const ES_BORRADOR = location.hostname.endsWith('.sslip.io') || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 const GA4_VALIDO = /^G-[A-Z0-9]{6,}$/.test(GA4_ID) && GA4_ID !== 'G-XXXXXXXXXX';
 
