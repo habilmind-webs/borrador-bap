@@ -203,3 +203,21 @@ html.hmc-abierto{overflow:hidden}
   .cab-nav .btn,.cab-nav .btn-sm{display:flex;width:100%;height:48px;margin-top:.75rem;font-size:1rem}
 }
 @media (max-width:860px) and (prefers-reduced-motion:reduce){.cab-menu-ico span{transition:none}}
+
+/* Móvil (≤639px): espaciado vertical a punto medio entre secciones (pedido de Rosario). Escritorio sin cambios. */
+@media (max-width:639px){
+  .site-hero{padding:2.75rem 0 3.75rem}
+  .hero-grid{gap:2rem}
+  .hero-tagline{margin-bottom:1.1rem}
+  .hero-subt{margin-bottom:1.5rem}
+  .hero-dev{margin-bottom:1.5rem}
+  .sec{padding:3rem 0}
+  .bloque{margin-top:2.25rem}.bloque-cab{margin-bottom:1.25rem}
+  .cuando-grid{gap:1.75rem}
+  .cuando-imp{margin-top:2.25rem}
+  .pruebas{gap:1.25rem}
+  .benefs{gap:1.25rem;margin-top:1.5rem}
+  .cierre{padding:3.5rem 0}
+  .pie{padding:2.75rem 0 1.75rem}
+  .pie-wrap>*+*{margin-top:1.75rem;padding-top:1.75rem}
+}
