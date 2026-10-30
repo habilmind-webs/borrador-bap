@@ -1,7 +1,6 @@
-// Fuentes como en socioemociograma: autoalojadas con @fontsource (Inter 400/500 e Instrument Serif 400 sin cursiva)
+// Fuentes como en socioemociograma: autoalojadas con @fontsource (solo Inter 400/500: una única tipografía, sin serif ni cursivas, pedido de Rosario)
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
-import '@fontsource/instrument-serif/400.css';
 import './style.css';
 
 // GA4 con Consent Mode v2. Pon aquí el ID G-XXXXXXXXXX de la web (lo da Esmarelda/Ofelia).

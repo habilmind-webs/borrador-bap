@@ -18,7 +18,7 @@ a{color:inherit}img{max-width:100%;height:auto}
 /* Escalas tipográficas idénticas a socioemociograma */
 h1,h2,h3,h4{font-family:'Inter',system-ui,sans-serif;font-weight:500;letter-spacing:-.02em;line-height:1.15;margin:0 0 1rem;color:#000}
 h1,.heading-hero{font-size:clamp(2rem,4.2vw,3.25rem)}h2{font-size:clamp(1.5rem,2.6vw,2.125rem)}h3{font-size:clamp(1.05rem,1.4vw,1.25rem)}
-h1 em,h2 em,h3 em,h4 em{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-weight:400;letter-spacing:0;color:#000}
+h1 em,h2 em,h3 em,h4 em{font-family:inherit;font-style:normal;font-weight:inherit;color:#000}
 p{line-height:1.6}
 strong,b,dt,summary{font-weight:700}
 /* Cabecera (como socioemociograma: 80px, crema 92%, borde inferior, botones rectos) */
@@ -76,11 +76,11 @@ strong,b,dt,summary{font-weight:700}
 .checks li::before{content:"✓";position:absolute;left:0;top:.55rem;width:1.35rem;height:1.35rem;border:1px solid var(--rule);background:var(--surf);color:var(--fg);font-size:.75rem;display:grid;place-items:center;font-weight:500}
 .tarjeta-imp{background:var(--card);border:1px solid var(--rule);padding:2rem;box-shadow:var(--sombra)}.tarjeta-imp p{margin:0;color:var(--mut)}
 .bloque{margin-top:3rem}.bloque-cab{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem;margin-bottom:1.5rem}
-.num{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-weight:400;font-size:2rem;color:var(--acc);line-height:1}.bloque-tit{margin:0;font-size:clamp(1.05rem,1.4vw,1.25rem)}
+.num{font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:500;font-size:2rem;color:var(--acc);line-height:1}.bloque-tit{margin:0;font-size:clamp(1.05rem,1.4vw,1.25rem)}
 .pruebas{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .prueba{background:var(--card);border:1px solid var(--borde);padding:1.75rem;display:flex;flex-direction:column;box-shadow:var(--sombra)}
 .sigla{margin:0 0 .25rem;font-weight:500;letter-spacing:.08em;color:var(--hm)}.prueba h3{margin-bottom:.5rem}
-.pregunta{font-family:'Instrument Serif',Georgia,serif;font-style:normal;font-size:1.25rem;line-height:1.35;color:var(--fg);margin:0 0 .75rem}
+.pregunta{font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:500;font-size:1.125rem;line-height:1.35;color:var(--fg);margin:0 0 .75rem}
 .prueba>p{color:var(--mut);margin:0 0 1rem}
 dl{margin:0 0 1rem;display:grid;gap:.5rem}dl div{display:grid;grid-template-columns:7.5rem 1fr;gap:.5rem}dt{font-weight:500;font-size:.875rem;color:var(--fg)}dd{margin:0;color:var(--mut);font-size:.875rem}
 .cursos{list-style:none;padding:0;margin:0 0 1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.35rem .75rem;font-size:.875rem}
