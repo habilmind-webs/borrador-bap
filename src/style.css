@@ -104,3 +104,15 @@ details{background:var(--card);border:1px solid var(--borde);padding:1.1rem 1.4r
 
 /* Rosario 30/10: sin cursivas en toda la web */
 em,i,cite,address,dfn,var{font-style:normal}
+
+/* «¿Cuándo usar la BAP?»: texto a la izquierda, hueco de foto a la derecha (pedido de Rosario) */
+.cuando-grid{isolation:isolate;display:grid;gap:2.5rem;grid-template-columns:1fr;align-items:center}
+.cuando-eti{margin:0 0 .5rem;font-size:.8125rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc,#c2603e)}
+.cuando-texto h2{margin-top:0}
+.cuando-marco{position:relative;margin:0;border:1px solid var(--rule);background:var(--card);padding:.75rem;box-shadow:var(--sombra)}
+.cuando-marco::before{content:"";position:absolute;inset:-8px 8px 8px -8px;border:1px solid var(--acc,#c2603e);z-index:-1;opacity:.55}
+.cuando-foto{aspect-ratio:4/3;width:100%;display:grid;place-items:center;background:var(--muted);border:1px dashed var(--rule);color:var(--mut);font-size:.875rem;letter-spacing:.08em;text-transform:uppercase}
+.cuando-marco>img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.cuando-imp{margin-top:3rem}
+@media (min-width:768px){.cuando-marco{padding:1rem}.cuando-marco::before{inset:-12px 12px 12px -12px}}
+@media (min-width:1024px){.cuando-grid{grid-template-columns:1.05fr .95fr;gap:4rem}.cuando-imp{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}.cuando-imp h2{margin:0;white-space:nowrap}}
