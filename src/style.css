@@ -38,7 +38,7 @@ strong,b,dt,summary{font-weight:700}
 .site-hero{padding:5rem 0 7.5rem;background:var(--bg)}
 .hero-grid{display:grid;gap:3rem;align-items:center}
 .hero-texto{text-align:center;order:1}
-.hero-tagline{display:inline-flex;align-items:center;justify-content:center;width:fit-content;max-width:100%;margin-bottom:1.5rem;color:var(--mut);font-size:clamp(.625rem,1vw,.75rem);font-weight:500;line-height:1.3;letter-spacing:.18em;text-transform:uppercase}
+.hero-tagline{display:block;width:auto;max-width:100%;padding:0;border:0;border-radius:0;background:none;box-shadow:none;margin-bottom:1.5rem;color:var(--mut);font-size:clamp(.625rem,1vw,.75rem);font-weight:500;line-height:1.3;letter-spacing:.18em;text-transform:uppercase}
 .heading-hero{margin:0 0 .75rem}.heading-hero .linea{display:block}.heading-hero .linea+.linea{padding-bottom:.25rem}
 .hero-subt{color:var(--mut);font-size:1rem;max-width:36rem;margin:0 auto 2rem}
 .hero-dev{display:flex;justify-content:center;margin-bottom:2rem}
