@@ -8,24 +8,96 @@
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#fafaf5" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!-- CHAT DE OFELIA (obligatorio, no quitar): mismo snippet que socioemociograma, en el head -->
+  <script src="https://go.habilmind.net/webchat/widget.js" async></script>
   <script type="module" src="/src/main.js"></script>
 </head>
 <body>
-  <!-- 1) BANNER FLASH (obligatorio, no quitar). Va antes del contenido. -->
+  <!-- 1) BANNER FLASH (obligatorio, no quitar). Mismo patrón que socioemociograma:
+       contenedor #flash-notice-widget + observer de altura (--flash-widget-height) + serve-widget al principio del body. -->
+  <div id="flash-notice-widget" style="position:relative;z-index:60;"></div>
+  <script>
+    (function() {
+      var WIDGET_ID_PREFIX = 'hm-notice-';
+      var CSS_VAR = '--flash-widget-height';
+      var resizeObservers = [];
+
+      function isPopup(widget) {
+        return !!(widget.querySelector('[style*="position:fixed"], [style*="position: fixed"]'));
+      }
+
+      function getWidgetHeight() {
+        var widgets = document.querySelectorAll('[id^="' + WIDGET_ID_PREFIX + '"]');
+        var maxVisible = 0;
+        for (var i = 0; i < widgets.length; i++) {
+          var w = widgets[i];
+          if (isPopup(w)) continue;
+          if (w.style.display === 'none') continue;
+          var rect = w.getBoundingClientRect();
+          // Visible portion of the widget still touching the top of viewport
+          var visible = Math.max(0, Math.min(rect.bottom, w.offsetHeight));
+          if (rect.top > 0) visible = w.offsetHeight; // not yet scrolled past top
+          if (rect.bottom <= 0) visible = 0; // fully scrolled away
+          else if (rect.top < 0) visible = rect.bottom; // partially scrolled
+          if (visible > maxVisible) maxVisible = visible;
+        }
+        document.documentElement.style.setProperty(CSS_VAR, maxVisible + 'px');
+      }
+
+      function observeWidget(widget) {
+        if (isPopup(widget)) return;
+        new MutationObserver(getWidgetHeight).observe(widget, { attributes: true, attributeFilter: ['style'] });
+        if (typeof ResizeObserver !== 'undefined') {
+          var ro = new ResizeObserver(getWidgetHeight);
+          ro.observe(widget);
+          resizeObservers.push(ro);
+        }
+      }
+
+      var bodyObserver = new MutationObserver(function(mutations) {
+        var shouldUpdate = false;
+        for (var i = 0; i < mutations.length; i++) {
+          var m = mutations[i];
+          if (m.type === 'childList') {
+            for (var j = 0; j < m.addedNodes.length; j++) {
+              var node = m.addedNodes[j];
+              if (node.nodeType === 1 && node.id && node.id.indexOf(WIDGET_ID_PREFIX) === 0) {
+                shouldUpdate = true;
+                observeWidget(node);
+              }
+            }
+            for (var j = 0; j < m.removedNodes.length; j++) {
+              var node = m.removedNodes[j];
+              if (node.nodeType === 1 && node.id && node.id.indexOf(WIDGET_ID_PREFIX) === 0) {
+                shouldUpdate = true;
+              }
+            }
+          }
+        }
+        if (shouldUpdate) getWidgetHeight();
+      });
+
+      bodyObserver.observe(document.body, { childList: true });
+      setTimeout(getWidgetHeight, 100);
+      window.addEventListener('load', getWidgetHeight);
+      window.addEventListener('scroll', getWidgetHeight, { passive: true });
+      window.addEventListener('resize', getWidgetHeight);
+    })();
+  </script>
   <script>
     (function () {
+      var BASE = 'https://oddamxbficfqouiojzst.supabase.co/functions/v1/serve-widget';
       function langFromPath() {
         var seg = (location.pathname.split('/')[1] || '').toLowerCase();
-        if (seg === 'en') return 'en'; if (seg === 'cat') return 'cat';
-        if (seg === 'pt' || seg === 'br') return 'pt'; return 'es';
+        if (seg === 'en') return 'en'; if (seg === 'cat' || seg === 'ca') return 'cat';
+        if (seg === 'pt' || seg === 'br' || seg === 'pt-br' || seg === 'pt-pt') return 'pt'; return 'es';
       }
-      function loadWidget() {
-        var s = document.createElement('script');
-        s.src = 'https://oddamxbficfqouiojzst.supabase.co/functions/v1/serve-widget?lang=' + langFromPath() + '&t=' + Date.now();
-        s.setAttribute('data-hm-widget', '1');
-        document.body.appendChild(s);
-      }
-      if (document.readyState === 'complete') loadWidget(); else window.addEventListener('load', loadWidget, { once: true });
+      document.documentElement.style.setProperty('--flash-widget-height', '0px');
+      var s = document.createElement('script');
+      s.src = BASE + '?lang=' + langFromPath();
+      s.async = true;
+      s.setAttribute('data-hm-lang', langFromPath());
+      document.body.insertBefore(s, document.body.firstChild);
     })();
   </script>
 
@@ -222,7 +294,6 @@
 
   <!-- 3) CONSENTIMIENTO DE COOKIES: lo pinta src/cookies.js (banner + panel). GA4 solo tras aceptar «Análisis». -->
 
-  <!-- 4) CHAT DE OFELIA (obligatorio, no quitar) -->
-  <script src="https://go.habilmind.net/webchat/widget.js" async></script>
+  <!-- 4) CHAT DE OFELIA: se carga en el <head> (igual que socioemociograma) -->
 </body>
 </html>
